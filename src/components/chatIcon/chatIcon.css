@@ -1,0 +1,26 @@
+.chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+  
+  
+  .chat-icon.visible {
+    transform: scale(1.1);
+    background-color: grey;
+    color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    
+  }
+  
