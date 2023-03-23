@@ -8,7 +8,7 @@ import FormInput from "../../components/FormInput";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/apiCalls";
 import Footer from "../../components/Footer";
-
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -134,7 +134,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
   const [registerAttempted, setRegisterAttempted] = useState(false);
-
+  const redirect = useNavigate();
 
 
 
@@ -198,6 +198,8 @@ const Register = () => {
     e.preventDefault();
     register(dispatch, {values});
     setRegisterAttempted(true);
+    redirect("/login")
+
 
   };
 

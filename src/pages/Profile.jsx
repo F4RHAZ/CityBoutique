@@ -15,12 +15,14 @@ import ChatIcon from '../components/chatIcon/ChatIcon';
 import { DataGrid } from "@material-ui/data-grid";
 
 
-import {userRequest} from "../requestMethods";
+import {useAuthenticatedRequest} from "../requestMethods";
 
 const Profile = () => {
   const [userOrders, setUserOrders]= useState([]);
   const [userId, setUserid] = useState([]);
   const user = useSelector(state=>state.user.currentUser);
+
+  const authenticatedRequest = useAuthenticatedRequest();
 
  // console.log(user)
 
@@ -29,7 +31,7 @@ const Profile = () => {
     useEffect(() => {
       const fetchUserOrders = async () => {
         try {
-          const res = await userRequest.get("/users/fetchorder/"+user._id);
+          const res = await authenticatedRequest.get("/users/fetchorder/"+user._id);
           setUserOrders(res.data)
          // console.log(res.data)
         } catch (error) {

@@ -241,6 +241,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const quantity = useSelector(state=>state.cart.quantity);
   const user = useSelector(state=>state.user.currentUser);
+  const usertoken = useSelector(state=>state.user.currentUser.accesstoken);
   const redirect = useNavigate();
 //  console.log(user);
 
@@ -261,7 +262,7 @@ const Navbar = () => {
         <Left>
           <Language>EN</Language>
         
-          {user ? (
+          {user && usertoken ? (
           <>
         <Hamburger onClick={() => setOpen(!open)}>
           <MenuIcon/>
