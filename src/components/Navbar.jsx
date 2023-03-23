@@ -187,7 +187,6 @@ const MenuItem = styled.div`
   
   &:hover{
     background-color:#black;
-    font-size: 18px;
     font-weight: 900;
   }
   `;
@@ -212,11 +211,6 @@ const MenuItem = styled.div`
     }
   )}
   
-  &:hover{
-    background-color:#black;
-    font-size: 18px;
-    font-weight: 900;
-  }
   `;
 
   
@@ -241,7 +235,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const quantity = useSelector(state=>state.cart.quantity);
   const user = useSelector(state=>state.user.currentUser);
-  const usertoken = useSelector(state=>state.user.currentUser.accesstoken);
+  //const usertoken = useSelector(state=>state.user.currentUser.accesstoken);
   const redirect = useNavigate();
 //  console.log(user);
 
@@ -261,8 +255,7 @@ const Navbar = () => {
       <Wrapper>
         <Left>
           <Language>EN</Language>
-        
-          {user && usertoken ? (
+          {user && user.accesstoken ? (
           <>
         <Hamburger onClick={() => setOpen(!open)}>
           <MenuIcon/>
@@ -307,11 +300,11 @@ const Navbar = () => {
           </Link>
         </Center>
         <Right>
-        <SearchContainer>
+        {/* <SearchContainer>
             <Input placeholder="Search" />
             <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
-        
+         */}
        
             
               <MenuItemBadge as={Link} to="/cart">

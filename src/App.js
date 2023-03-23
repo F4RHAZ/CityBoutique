@@ -13,7 +13,7 @@ import { Helmet } from 'react-helmet';
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
-  const userToken = useSelector((state) => state.user.currentUser.accesstoken);
+
 
   return  (
     <>
@@ -34,8 +34,8 @@ const App = () => {
         <Route path ='/success' element ={<Success />} />
         <Route path ='/profile' element ={<Profile />} />
 
-        <Route path ='/login' element = {user && userToken? <Navigate to="/"/> : <Login />} />
-        <Route path ='/register' element = {user && userToken? <Navigate to="/"/> : <Register />}  />
+        <Route path ='/login' element = {user && user.accesstoken ? <Navigate to="/"/> : <Login />} />
+        <Route path ='/register' element = {user && user.accesstoken ? <Navigate to="/"/> : <Register />}  />
         
       </Routes>
 

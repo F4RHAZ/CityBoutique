@@ -480,7 +480,7 @@ const Cart = () => {
              */}
             
             
-            {user ? (
+            {user && user.accesstoken ? (
               cart.quantity > 0 ? (
                 <PayButton cart={cart} />
               ) : (

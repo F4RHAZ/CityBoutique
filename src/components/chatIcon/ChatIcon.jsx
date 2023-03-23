@@ -21,7 +21,7 @@ function ChatIcon() {
         className={`chat-icon ${visible ? "visible" : ""}`}
         onClick={toggleVisible}
       >
-           {user ? (
+        {user && user.accesstoken ? (
         <React.Fragment>
           <MessageIcon style={{ fontSize: '33px', zIndex: 1000 }} />
           {visible && <ChatBubble toggleVisible={toggleVisible} />}
