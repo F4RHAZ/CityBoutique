@@ -249,6 +249,7 @@ const Profile = () => {
                         <p>Color: {product.color} </p>
                         <p>Price: {product.price} </p>
                         <p>Quantity: {product.quantity} </p>
+                        <p>Description: {product.desc} </p>
                       </div>
                     </div>
                   ))}

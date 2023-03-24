@@ -6,7 +6,7 @@ import Announcement from "../components/Announcement";
 import Products from '../components/Products';
 import Footer from "../components/Footer";
 import { Add, Remove } from "@mui/icons-material";
-import { mobile } from "../responsive";
+import { mobile, tablet } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../requestMethods"
 import { addProduct } from "../redux/cartRedux";
@@ -24,6 +24,7 @@ const Wrapper = styled.div`
   padding: 50px;
   display: flex;
   ${mobile({ padding: "10px", flexDirection : "column" })}
+  ${tablet({ padding: "10px", flexDirection : "column" })}
 `;
 
 

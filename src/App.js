@@ -9,10 +9,11 @@ import Success from "./pages/Success";
 import Profile from "./pages/Profile";
 import { useSelector } from "react-redux";
 import { Helmet } from 'react-helmet';
-
+import { useEffect } from "react";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
+  
 
 
   return  (
