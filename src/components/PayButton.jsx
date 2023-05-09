@@ -51,7 +51,7 @@ const CloseButton = styled.button`
 
 //
 
-const PayButton = ({cart}) =>{
+const PayButton = ({cart, discountPercentage}) =>{
     const history = useNavigate();
     const user = useSelector(state=>state.user.currentUser);
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -145,11 +145,24 @@ const PayButton = ({cart}) =>{
         let total = cart.total;
        // let userId = user._id;
       //  console.log(cart1, userId, total, values)
+
+      // calculate discount
+      let discountAmount = 0;
+      if (discountPercentage){
+        discountAmount = (discountPercentage / 100) * total;
+      }
+      let discountedTotal = total - discountAmount;
+
         const orderData = {
             products: cart1,
             userId: user._id,
             shipping: values,
-            total: total,
+            total: discountedTotal,
+            discount: {
+              percentageOff: discountPercentage?? 0,
+              amountOff: discountAmount,
+            },
+
           };
           
         try {

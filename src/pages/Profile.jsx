@@ -215,6 +215,7 @@ const Profile = () => {
             <th>Total</th>
             <th>Delivery Status</th>
             <th>Payment Status</th>
+            <th>Discount</th>
             <th>Products</th>
           </tr>
         </thead>
@@ -223,8 +224,16 @@ const Profile = () => {
             <tr key={order._id}>
               <td>{order._id}</td>
               <td>{order.total}</td>
+ 
               <td>{order.delivery_status}</td>
               <td>{order.payment_status}</td>
+              <td>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <p>Percentage off: {order.discount?.percentageOff || 0}</p> 
+                <p>Amount off: {order.discount?.amountOff || 0}</p>
+              </div>
+            </td>
+                
               <td>
                 <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", alignItems: "center" }}>
                   {order.products.map((product) => (

@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React , {useState, useEffect} from 'react';
 import { Add, Remove } from "@mui/icons-material";
 import styled from 'styled-components';
 import Announcement from '../components/Announcement';
@@ -15,6 +15,8 @@ import { removeProduct, clearCart, reduceQntity, addProduct } from '../redux/car
 import { useDispatch } from "react-redux";
 import CloseIcon from '@mui/icons-material/Close';
 import ChatIcon from '../components/chatIcon/ChatIcon';
+import { publicRequest } from '../requestMethods';
+
 
 //const KEY=process.env.REACT_APP_STRIPE;
 
@@ -294,7 +296,23 @@ const Cart = () => {
   const dispatch = useDispatch();
   const user = useSelector(state=>state.user.currentUser);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [discount, setDiscount] = useState([]);
 
+
+
+
+  useEffect(() => {
+    publicRequest.get('/discount/showDiscount')
+      .then(res => setDiscount(res.data))
+      .catch(err => console.log(err));
+  }, []);
+    
+   // console.log(discount[0]?.percentageOff);
+
+
+  const discountPercentage = discount[0]?.percentageOff;
+  const discountAmount = discountPercentage ? (cart.total * discountPercentage) / 100 : 0;
+  const totalAfterDiscount = cart.total - discountAmount;
 
   //const [quantity, setqnt] = useState(1);
 
@@ -317,6 +335,10 @@ const Cart = () => {
   //   };
   //   stripeToken && cart.total>=1 && makeRequest();
   // }, [stripeToken, cart.total, navigate, cart]);
+
+
+
+
 
     const handleClick = (product) => {
      dispatch(removeProduct(product));
@@ -450,23 +472,31 @@ const Cart = () => {
 
             </Info>
 
+            
+
             <Summary>
               <SummaryTitle>ORDER SUMMARY</SummaryTitle>
               <SummaryItem>
                 <SummaryItemText>Subtotal</SummaryItemText>
                 <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
               </SummaryItem>
-              <SummaryItem>
-                <SummaryItemText>Estimated Shipping</SummaryItemText>
+              {discountPercentage && (
+                <SummaryItem>
+                  <SummaryItemText>Discounts ({discountPercentage}%)</SummaryItemText>
+                  <SummaryItemPrice>$ {discountAmount.toFixed(2)}</SummaryItemPrice>
+                </SummaryItem>
+              )}
+             
+              {/* <SummaryItem>
+                <SummaryItemText>Shipping </SummaryItemText>
+                <SummaryItemText>Contacted by the supplier</SummaryItemText>
                 <SummaryItemPrice>$ 0.00</SummaryItemPrice>
               </SummaryItem>
-              <SummaryItem>
-                <SummaryItemText>Shipping Discount</SummaryItemText>
-                <SummaryItemPrice>$ 0.00</SummaryItemPrice>
-              </SummaryItem>
+              */}
+             
               <SummaryItem type="total">
                 <SummaryItemText>Total</SummaryItemText>
-                <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
+                <SummaryItemPrice>$ {totalAfterDiscount.toFixed(2)}</SummaryItemPrice>
                 </SummaryItem>
 
             {/* 
@@ -482,7 +512,11 @@ const Cart = () => {
             
             {user && user.accesstoken ? (
               cart.quantity > 0 ? (
-                <PayButton cart={cart} />
+                discount && discount[0]?.isActive ? (
+                  <PayButton cart={cart} discountPercentage={discount[0].percentageOff} />
+                ) : (
+                  <PayButton cart={cart} />
+                )
               ) : (
                 <ButtonCheckout onClick={() => window.alert("Cart is empty, please add items to the cart.")}>
                   CHECKOUT NOW

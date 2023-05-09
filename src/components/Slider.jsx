@@ -6,6 +6,7 @@ import { mobile, tablet } from "../responsive";
 
 
 const Container = styled.div `
+  margin-top: 1rem;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -149,9 +150,9 @@ const Slider = () => {
               <Desc>
                 {item.desc}
               </Desc>
-              <Button>
+              {/* <Button>
                 SHOW NOW
-              </Button>
+              </Button> */}
             </InfoContainer>
           </Slide>
         ))}
