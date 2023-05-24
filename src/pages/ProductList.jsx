@@ -118,7 +118,7 @@ const ProductList = () => {
       </FilterContainer>
 
       <Products cat={cat} filters ={filters} sort={sort} />
-      <Newsletter />
+     
       <Footer />
       <ChatIcon />
     </Container>

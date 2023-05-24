@@ -28,7 +28,7 @@ export const categories = [
      id: 1,
      img: "https://media.discordapp.net/attachments/1090752455752548443/1105470631727857714/Farhaz_South_sudanese_men_modeling_for_a_clothes_boutique_websi_a650697b-5778-4f73-9a16-f06932e75b10.png?width=617&height=617",
      title: "SHIRT STYLE!",
-     cat: "shirt"
+     cat: "shirts"
    },
    {
      id: 2,
@@ -39,8 +39,8 @@ export const categories = [
    {
      id: 3,
      img: "https://media.discordapp.net/attachments/1090752455752548443/1105475687399305286/Farhaz_South_sudanese_men_modeling_for_a_clothes_boutique_websi_f1c10f97-b222-4877-9996-d8d5fb63cfc7.png?width=617&height=617",
-     title: "JEANS STYLES!",
-     cat: "jeans"
+     title: "TROUSERS STYLES!",
+     cat: "Trousers"
    },
  ];
 

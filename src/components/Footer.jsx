@@ -165,8 +165,15 @@ const Footer = () => {
       </ListItem>
 
        <ListItem>
-        <Link to="/products/men" style={{ textDecoration: 'none', color: 'black'}}> 
-        Man Fashion
+        <Link to="/products/shirts" style={{ textDecoration: 'none', color: 'black'}}> 
+        Shirt Styles
+        </Link>
+      </ListItem>
+
+      
+      <ListItem>
+        <Link to="/products/Trousers" style={{ textDecoration: 'none', color: 'black'}}> 
+        Trousers Styles
         </Link>
       </ListItem>
 
@@ -194,15 +201,15 @@ const Footer = () => {
       <ContactItem onClick={() => window.open("https://www.google.com/maps/place/Airport+Road,+Juba,+South+Sudan/")}> 
         <Room style={{marginRight:"10px"}}/> Airport road opposit Alpha Bank Juba, South Sudan
       </ContactItem>
-      <ContactItem onClick={() => window.open("tel:+211923612222")}>
-        <Phone style={{marginRight:"10px"}}/> +211 923 612 222
+      <ContactItem onClick={() => window.open("tel:+211988335000")}>
+        <Phone style={{marginRight:"10px"}}/> +211 988 335 000
       </ContactItem>
-      <ContactItem onClick={() => window.open("tel:+211913612222")}>
-        <Phone style={{marginRight:"10px"}}/> +211 913 612 222
+      <ContactItem onClick={() => window.open("tel:+211922122050")}>
+        <Phone style={{marginRight:"10px"}}/> +211 922 122 050
       </ContactItem>
-      <ContactItem onClick={() => window.open("tel:+211983612222")}>
+      {/* <ContactItem onClick={() => window.open("tel:+211983612222")}>
         <Phone style={{marginRight:"10px"}}/> +211 983 612 222
-      </ContactItem>
+      </ContactItem> */}
       <ContactItem onClick={() => window.open("mailto:citybjuba@gmail.com")}>
         <MailOutline style={{marginRight:"10px"}} /> citybjuba@gmail.com
       </ContactItem >

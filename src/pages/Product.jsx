@@ -381,7 +381,7 @@ const Product = () => {
         </InfoContainer>
       </Wrapper>
 
-      <Products />
+      <Products  />
       <Footer />
 <ChatIcon />
     </Container>

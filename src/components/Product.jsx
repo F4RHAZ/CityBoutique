@@ -8,6 +8,8 @@ import { Link } from  "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import LazyLoad from "react-lazyload";
+
 
 
 
@@ -31,7 +33,7 @@ const Container = styled.div`
   flex: 1;
   margin: 5px;
   min-width: 280px;
-  height: 350px;
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,12 +50,15 @@ const Circle = styled.div`
   border-radius: 50%;
   background-color: white;
   position: absolute;
+  z-index: -1;
 `;
+
 
 const Image = styled.img`
   height: 75%;
+  max-width: 300px;
   z-index: 2;
-`;
+  `;
 
 const Icon = styled.div`
   width: 50px;
@@ -104,7 +109,9 @@ const Product = ({ item }) => {
           ))}
         </Slider>
       ) : (
-        <Image src={item.img} />
+          <LazyLoad>
+            <Image src={item.img}/>
+         </LazyLoad>
       )}
       <Info>
      

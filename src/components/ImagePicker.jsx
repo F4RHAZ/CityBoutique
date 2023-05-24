@@ -11,7 +11,7 @@ const ImagePickerContainer = styled.div`
 `;
 
 const MainImage = styled.img`
-  min-width: 300px;
+  max-width: 400px;
   height: 350px;
   margin-bottom: 12px;
  
