@@ -27,21 +27,39 @@ export const categories = [
   {
      id: 1,
      img: "https://media.discordapp.net/attachments/1090752455752548443/1105470631727857714/Farhaz_South_sudanese_men_modeling_for_a_clothes_boutique_websi_a650697b-5778-4f73-9a16-f06932e75b10.png?width=617&height=617",
-     title: "SHIRT STYLE!",
+     title: "SHIRTS",
      cat: "shirts"
    },
    {
      id: 2,
      img: "https://media.discordapp.net/attachments/1090752455752548443/1105469483944001556/Farhaz_South_sudanese_men_modeling_for_a_clothes_boutique_websi_6d3da85c-5ef0-48f6-a2a5-e3f9b90f6e21.png?width=617&height=617",
-     title: "MEN STYLES!",
+     title: "MEN",
      cat: "men"
    },
    {
      id: 3,
      img: "https://media.discordapp.net/attachments/1090752455752548443/1105475687399305286/Farhaz_South_sudanese_men_modeling_for_a_clothes_boutique_websi_f1c10f97-b222-4877-9996-d8d5fb63cfc7.png?width=617&height=617",
-     title: "TROUSERS STYLES!",
+     title: "TROUSERS",
      cat: "Trousers"
    },
+   {
+    id: 4,
+    img: "https://media.discordapp.net/attachments/1090752455752548443/1110940943747649588/Farhaz_South_sudanese_men_modeling_for_a_clothes_boutique_websi_095ce3fc-6250-4aac-b4d9-1e0f4a808ce8.png?width=517&height=517",
+    title: "SHORTS",
+    cat: "shorts"
+  },
+  {
+    id: 5,
+    img: "https://media.discordapp.net/attachments/1090752455752548443/1110944931561873550/Farhaz_South_sudanese_men_modeling_for_a_clothes_boutique_websi_a9ca944b-8568-4ea5-b5cd-8565c38a5054.png?width=517&height=517",
+    title: "T-SHIRTS ",
+    cat: "Tshirts"
+  },
+  {
+    id: 6,
+    img: "https://media.discordapp.net/attachments/1090752455752548443/1110940791301472316/Farhaz_wearing_boxers_88e4b1f6-32b0-49c2-8cbe-71589e019701.png?width=517&height=517",
+    title: "UNDERWEARS",
+    cat: "underwear"
+  },
  ];
 
 
